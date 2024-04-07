@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit ,minmax(200px,1fr));
+    gap: 10px;
+}
+
+.products-main{
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-container{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range-input{
+    display: flex;
+    gap: 5px;
+}
