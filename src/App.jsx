@@ -5,13 +5,14 @@ import RenderMain from './renders/main.jsx'
 import {useFilters} from './hooks/filters.js'
 
 function App() {
- let {ShopFilters,setShopFilters} = useFilters()
-  
+ let {Productfilters,setShopFilters} = useFilters()
+
+
   return (
     <>
 
-    <RenderHeader ShopFilters={ShopFilters} setShopFilters={setShopFilters} />
-    <RenderMain/>
+    <RenderHeader  setShopFilters={setShopFilters} />
+    <RenderMain Productfilters={Productfilters}/>
 
     </>
   )
