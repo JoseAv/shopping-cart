@@ -1,22 +1,20 @@
-import { useCallback, useState } from "react"
+import { useCallback, useContext } from "react"
 import debounce from 'just-debounce-it'
+import {ContextFilters} from '../ContextFilteres'
 
-
-export function RenderHeader({setShopFilters}){
-console.log(setShopFilters)
- const [valueFil,setValufilt] = useState(0)
+export function RenderHeader(){
+  const {ShopFilters,setShopFilters} = useContext(ContextFilters)
   
 
 const handelFilter = useCallback(
   debounce((newValue)=> {
   setShopFilters((prev) => ({...prev,minPrice:newValue}))
 },1000),
-[valueFil.minPrice]
+[ShopFilters.minPrice]
 )
 
   function handleFilterShop(e){
     let newValue = e.target.value
-    setValufilt(newValue)
     handelFilter(newValue)
     
   }
@@ -32,7 +30,7 @@ const handelFilter = useCallback(
               <header className='header-container'>
       <div className='range-input'>
         <input type="range" onChange={handleFilterShop} min={0} max={2000} />
-        <p>{valueFil}</p>
+        <p>{ShopFilters.minPrice}</p>
       </div>
       <div className='button-cart'>
         <select name='Eliga una opcion' onChange={handleSelect}>

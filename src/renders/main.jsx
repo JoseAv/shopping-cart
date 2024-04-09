@@ -1,6 +1,10 @@
 function RenderMain({Productfilters}){ 
     let productos = Productfilters.length > 0 
 
+  function handleDataId(id){
+    console.log(id)
+  }
+
     return(
         <>
         
@@ -11,7 +15,7 @@ function RenderMain({Productfilters}){
       <h2>{e.title}</h2>
       <p>{e.description}</p>
       <h3>{e.price}</h3>
-      <button>Comprar</button>
+      <button onClick={()=> handleDataId(e)}>Comprar</button>
 
       </div>
 

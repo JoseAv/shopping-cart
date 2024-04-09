@@ -1,22 +1,18 @@
-import { useState } from "react"
 import {products} from '../mocks/products.json'
-
-
+import { useContext } from 'react'
+import {ContextFilters} from '../ContextFilteres'
 export function useFilters(){
 
-    const [ShopFilters, setShopFilters]= useState({
-        category:'all',
-        minPrice: '0'
-      })
-      console.log(ShopFilters.minPrice)
+    const {ShopFilters}= useContext(ContextFilters)
+
 
     const Productfilters = products.filter(e => {
       return (
         e.price   >=  ShopFilters.minPrice
-        && 
-        ShopFilters.category === 'all' ||
-        ShopFilters.category === e.category
-      
+        && //Evaluar Condicion con Parenteris, para que se trabaje solo como una unidad
+        (ShopFilters.category === 'all' || //sin parentesis se evaulara el precio y all || category 
+        ShopFilters.category === e.category // Con parentesis se evaluara precio y categoria
+        )
     )
 
     })
@@ -24,7 +20,7 @@ export function useFilters(){
 
 
     
-    return ({Productfilters,setShopFilters})
+    return ({Productfilters})
 
 
 }
