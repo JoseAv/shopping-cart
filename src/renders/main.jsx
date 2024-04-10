@@ -1,8 +1,15 @@
+import { useContext } from 'react'
+import {ContextCart} from '../ContextShop'
+
+
 function RenderMain({Productfilters}){ 
     let productos = Productfilters.length > 0 
+    const {incrementCart} = useContext(ContextCart)
 
-  function handleDataId(id){
-    console.log(id)
+
+
+  function handleDataId(product){
+    incrementCart(product)
   }
 
     return(
@@ -10,12 +17,12 @@ function RenderMain({Productfilters}){
         
         <main className='container'>
           
-    {productos ? Productfilters.slice(0,10).map(e => (
-      <div key={e.id} className='products-main'>
-      <h2>{e.title}</h2>
-      <p>{e.description}</p>
-      <h3>{e.price}</h3>
-      <button onClick={()=> handleDataId(e)}>Comprar</button>
+    {productos ? Productfilters.slice(0,8).map(product => (
+      <div key={product.id} className='products-main'>
+      <h2>{product.title}</h2>
+      <p>{product.description}</p>
+      <h3>{product.price}</h3>
+      <button onClick={()=> handleDataId(product)}>Comprar</button>
 
       </div>
 

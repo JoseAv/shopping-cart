@@ -30,3 +30,22 @@
     display: flex;
     gap: 10px;
 }
+
+.cartShopping-resetbutoom{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cartShopping-resetbutoom button{
+    width: 400px;
+}
+
+.container-delete{
+    width: 100%;
+    display: flex;
+    justify-content:flex-end;
+    text-align: center;
+}
+
